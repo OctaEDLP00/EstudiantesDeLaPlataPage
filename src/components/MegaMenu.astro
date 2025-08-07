@@ -1,0 +1,31 @@
+---
+import { MEGA_MENU_DATA } from '~/constants/index.ts'
+---
+
+<div
+  class='invisible absolute top-full right-0 left-0 z-50 mt-0 w-full border border-gray-200 bg-white p-8 opacity-0 shadow-xl transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100'
+>
+  <div
+    class='mx-auto grid max-w-7xl grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
+  >
+    {
+      MEGA_MENU_DATA.map(section => (
+        <div>
+          <h3 class='mb-4 text-sm font-bold text-gray-900 uppercase'>{section.title}</h3>
+          <ul class='space-y-2'>
+            {section.items.map(item => (
+              <li>
+                <a
+                  href={item.href}
+                  class='block text-sm text-gray-700 transition-colors hover:text-red-600'
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</div>

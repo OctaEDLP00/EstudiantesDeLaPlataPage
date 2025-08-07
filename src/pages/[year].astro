@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets'
+import AtroposCard from '~/components/AtroposCard.astro'
+import Link from '~/components/Link.astro'
+import Share from '~/assets/share.svg'
+import Download from '~/assets/download.svg'
+import Layout from '~/layouts/Layout.astro'
+
+let { year } = Astro.params
+
+if (year == null) {
+  year = new Date().getFullYear().toString()
+}
+
+const currentYear = parseInt(year)
+const foundationYear = 1905
+const age = currentYear - foundationYear
+const is120thAnniversaryYear = currentYear === 2025
+---
+
+<Layout>
+  <main>
+    <div class="grid grid-cols-4 grid-rows-4 gap-4 p-4">
+      <div class="col-span-2 row-span-4 flex items-center justify-end">
+        <div class='flex flex-col gap-4 space-y-2'>
+          <Link id='shareButton' as='button' class='flex items-center gap-2 space-x-2 rounded-lg px-4 py-2 border-2 border-red-500 hover:bg-red-500 hover:transition-colors hover:duration-500 cursor-pointer'>
+            <Share class='size-4'/>
+            Share
+          </Link>
+          <Link as='a' class='flex items-center gap-2 space-x-2 rounded-lg px-4 py-2 border-2 border-red-500 hover:bg-red-500 hover:transition-colors hover:duration-500 cursor-pointer'>
+            <Download class='size-4'/>
+            Download
+          </Link>
+        </div>
+      </div>
+      <div class="col-span-2 row-span-4 flex justify-start">
+        <AtroposCard
+          id='120Anniversary'
+          atroposClass='w-[400px] h-[600px]'
+          atroposInnerClass='shadow-2xl dark:shadow-red-600'
+        >
+          <div class="bg-white rounded-2xl relative overflow-hidden w-full h-full flex flex-col items-center justify-center p-6">
+            {is120thAnniversaryYear ? (
+              <Image
+                src="/120.webp"
+                alt="120 Aniversario Estudiantes de La Plata"
+                width={250}
+                height={250}
+                class="object-contain mb-4"
+              />
+              <p class="text-gray-800 text-xl font-semibold text-center">¡120 Años de Gloria!</p>
+              <p class="text-gray-600 text-sm mt-2 text-center">Desde 1905, una historia de pasión y grandeza.</p>
+            ) : (
+              <div class="text-center">
+                <p class="text-8xl font-bold text-red-600 leading-none">{age}</p>
+                <p class="text-3xl font-semibold text-gray-800 mt-2">Años de Historia</p>
+              </div>
+              <p class="text-gray-600 text-sm mt-8 text-center">Club fundado el 4 de agosto de 1905.</p>
+              <p class="text-gray-600 text-sm text-center">Celebrando en el año {currentYear}.</p>
+            )}
+          </div>
+        </AtroposCard>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { $ } from '~/lib/Dom'
+  // const $shareButton = $('#shareButton')!
+  const $downloadButton = $('#downloadButton')! as HTMLAnchorElement
+
+  // $shareButton.addEventListener('click', async function () {})
+
+  $downloadButton?.addEventListener('click', async () => {
+    const { toJpeg  } = await import('html-to-image')
+    const opts = {
+      quality: 0.8,
+      pixelRatio: 2, // Higher resolution for better quality
+      skipAutoScale: true,
+      // Handle CSS transforms and 3D effects
+      style: {
+        transform: 'none', // Reset transforms for clean capture
+        transformStyle: 'flat' // Flatten 3D transforms
+      }
+    }
+    const dataURL = await toJpeg(($('#120Anniversary')! as HTMLElement), opts)
+    console.log(dataURL)
+    const link = document.createElement('a')
+    link.download = '120-aniversario.jpg'
+    link.href = dataURL
+    link.click()
+  })
+</script>

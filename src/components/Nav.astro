@@ -1,0 +1,28 @@
+---
+import { NAVIGATION_ITEMS } from '~/constants/index.ts'
+import Hamburger from '~/assets/hamburger.svg'
+import Edlp from '~/assets/edlp.svg'
+---
+
+<nav class='h-32 w-screen'>
+  <div class='flex h-full items-center justify-around'>
+    <div>
+      <Edlp class='size-32' />
+    </div>
+    <div>
+      <ul class='flex space-x-4'>
+        {
+          NAVIGATION_ITEMS.map(({ name, href }) => (
+            <li>
+              <a {href}>{name}</a>
+            </li>
+          ))
+        }
+        <li class='flex gap-1 space-x-1'>
+          <span>MENÚ</span>
+          <Hamburger />
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

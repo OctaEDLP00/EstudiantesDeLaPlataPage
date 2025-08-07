@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-facebook: #0866ff;
+  --color-instagram: #515edf;
+  --color-edlp: #de1d22;
+
+  --animate-marquee: marquee var(--duration) linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - var(--gap) / 2));
+  }
+}

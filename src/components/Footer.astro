@@ -1,0 +1,33 @@
+---
+import Edlp from '~/assets/edlp.svg'
+import { FOOTER_DATA } from '~/constants'
+---
+
+<footer class='bg-neutral-700 py-16 text-white'>
+  <div class='mx-auto max-w-7xl px-4'>
+    <div class='grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+      <div>
+        <div class='mb-4 flex items-center space-x-2'>
+          <Edlp class='size-15' />
+          <span class='text-xl font-bold'>{FOOTER_DATA.brand.name}</span>
+        </div>
+        <p>{FOOTER_DATA.brand.description}</p>
+      </div>
+      {
+        FOOTER_DATA.sections.map(section => (
+          <div>
+            <h3 class='mb-4 font-semibold'>{section.title}</h3>
+            <ul class='space-y-2 text-sm'>
+              {section.items.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    <div class='mt-12 border-t border-neutral-800 pt-8 text-center text-gray-400'>
+      <p>1905 - 2025 Club Estudiantes de La Plata.</p>
+    </div>
+  </div>
+</footer>

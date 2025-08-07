@@ -1,0 +1,99 @@
+---
+import AtroposCard from '~/components/AtroposCard.astro'
+import Edlp from '~/assets/edlp.svg'
+import Qr from '~/assets/qr.svg'
+import X from '~/assets/x.svg'
+import Facebook from '~/assets/Facebook.svg'
+import Instagram from '~/assets/instagram.svg'
+import Youtube from '~/assets/youtube.svg'
+import { Image } from 'astro:assets'
+---
+
+<AtroposCard
+  atroposClass='h-[300px] w-full max-w-[500px] -rotate-[15deg]'
+  atroposInnerClass='bg-white text-[#131313]'
+>
+  <div
+    data-component='Carnet'
+    class='grid h-full grid-cols-5 grid-rows-5 gap-4'
+  >
+    <div class='col-span-5 flex items-center justify-around p-2.5'>
+      <Edlp class='size-9' />
+      <p class='font-base text-right text-4xl uppercase'>
+        <span class='font-medium'>estudiantes</span> de la plata
+      </p>
+    </div>
+    <div class='col-span-5 row-span-3 row-start-2'>
+      <div class='grid grid-cols-5 grid-rows-5 gap-4'>
+        <div class='col-span-3 row-span-5'>
+          <div class='flex flex-col items-start justify-end pl-6'>
+            <Image
+              alt='Osvaldo Zubeldia'
+              src='/osvaldo-zubeldia.jpeg'
+              width='341'
+              height='309'
+              class='size-28'
+            />
+            <div class='mt-3.5'>
+              <h2 class='uppercase'>Osvaldo Juan Zubeldía</h2>
+              <h3>Socio N°: 16101968</h3>
+            </div>
+          </div>
+        </div>
+        <div class='col-span-2 col-start-4 row-span-5 flex items-end justify-center'>
+          <div>
+            <Qr class='size-28' />
+            <p class='uppercase'>Honorario</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class='col-span-5 row-start-5 flex items-center justify-around bg-red-600 p-2 text-sm text-white'
+    >
+      <a
+        href='https://estudiantesdelaplata.com'
+        target='_blank'
+      >
+        <p class='uppercase hover:text-black/60'>www.estudiantesdelaplata.com</p>
+      </a>
+      <div class='flex gap-4'>
+        <ul class='flex items-center gap-2'>
+          <li>
+            <a
+              href='https://facebook.com/edelpoficial'
+              target='_blank'
+            >
+              <Facebook class='size-4 hover:text-black/50' />
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://x.com/edelpoficial'
+              target='_blank'
+            >
+              <X class='size-4 hover:text-black/50' />
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://instagram.com/edelpoficial'
+              target='_blank'
+            >
+              <Instagram class='size-4 hover:text-black/50' />
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://youtube.com/@edelpoficial'
+              target='_blank'
+            >
+              <Youtube class='size-4 hover:text-black/50' />
+            </a>
+          </li>
+        </ul>
+        <p>/EDELPOFICAL</p>
+      </div>
+    </div>
+  </div>
+</AtroposCard>

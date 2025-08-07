@@ -1,0 +1,31 @@
+---
+export type Props = {
+  className?: string
+  reverse?: boolean
+  pauseOnHover?: boolean
+  [key: string]: unknown
+  size?: 'small' | 'medium' | 'large'
+}
+
+const { className, reverse, pauseOnHover, size, ...restProps } = Astro.props
+---
+
+<div
+  {...restProps}
+  class:list={[
+    'flex w-full overflow-x-hidden [--duration:40s] [--gap:1rem]',
+    className,
+    size === 'large' && 'flex-col items-center xl:flex-row xl:items-stretch xl:justify-normal',
+  ]}
+>
+  <div
+    class:list={[
+      'animate-marquee flex w-max items-stretch gap-[--gap]',
+      reverse && '[animation-direction:reverse]',
+      pauseOnHover && 'hover:[animation-play-state:paused]',
+      size === 'large' && 'h-full flex-col xl:flex-row',
+    ]}
+  >
+    <slot />
+  </div>
+</div>
