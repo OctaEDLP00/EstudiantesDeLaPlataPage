@@ -1,7 +1,7 @@
 // @ts-check
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config'
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,17 +10,13 @@ export default defineConfig({
     enabled: false,
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
-  experimental: {
-    fonts: [],
-  },
-  i18n: {
-    defaultLocale: 'es',
-    locales: ['es', 'en', 'fr'],
-    fallback: {
-      en: 'es',
-      fr: 'es',
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Archivo Black',
+      cssVariable: '--font-archivo-black',
     },
-  },
-});
+  ],
+})

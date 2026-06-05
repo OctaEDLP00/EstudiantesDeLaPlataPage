@@ -1,0 +1,37 @@
+---
+import QRCode from 'qrcode'
+
+interface Props {
+  data: string
+  fgColor?: string
+  bgColor?: string
+  margin?: number
+  cellSize?: number
+  render?: boolean
+  class?: string
+}
+
+const { render = false, data, fgColor, bgColor, margin, cellSize } = Astro.props
+
+let svgString = ''
+if (render && data) {
+  svgString = await QRCode.toString(data, {
+    type: 'svg',
+    margin,
+    color: {
+      dark: fgColor,
+      light: bgColor,
+    },
+    scale: cellSize,
+  })
+}
+---
+
+{
+  render ?
+    <div
+      class={Astro.props.class}
+      set:html={svgString}
+    />
+  : null
+}

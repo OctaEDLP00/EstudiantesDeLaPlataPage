@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+type AnchorProps = Omit<HTMLAttributes<'a'>, 'href' | 'target'>
+interface Props extends AnchorProps {
+  to: string
+  asBlank?: boolean
+}
+const { to, asBlank, ...props } = Astro.props
+---
+
+<a
+  target={asBlank ? '_blank' : '_self'}
+  href={to}
+  class:list={[Astro.props.class]}
+  {...props}
+>
+  <slot />
+</a>

@@ -1,33 +1,57 @@
 ---
+import CardInfo from '~/components/ui/CardInfo.astro'
 import Edlp from '~/assets/edlp.svg'
-import { FOOTER_DATA } from '~/constants'
+import WhatsApp from '~/components/WhatsApp.astro'
+
+interface Info {
+  city: string
+  name: string
+  street: string
+  phone: string
+  place: string
+}
+
+const INFO_FOOTER = [
+  {
+    place: 'sede social',
+    name: 'pedro j. osácar',
+    street: 'av. 53 Nº 620 (1900)',
+    phone: '(+54 221) 527 7107',
+    city: 'la plata',
+  },
+  {
+    place: 'country club',
+    name: 'mariano mangano',
+    street: 'calle 462 (alvear) esq. 28',
+    phone: '(+54 221) 527 7106',
+    city: 'city bell',
+  },
+  {
+    place: 'estadio',
+    name: 'jorge luis hirschi',
+    street: 'av. 1 e/ 55 y 57',
+    phone: '(+54 221) 527 7100',
+    city: 'la plata',
+  },
+  {
+    place: 'colegio estudiantes',
+    name: 'de la plata',
+    street: 'calle 462 (alvear) esquina 28',
+    phone: '(+54 221) 527 7108',
+    city: 'city bell',
+  },
+] satisfies Array<Info>
 ---
 
-<footer class='bg-neutral-700 py-16 text-white'>
-  <div class='mx-auto max-w-7xl px-4'>
-    <div class='grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
-      <div>
-        <div class='mb-4 flex items-center space-x-2'>
-          <Edlp class='size-15' />
-          <span class='text-xl font-bold'>{FOOTER_DATA.brand.name}</span>
-        </div>
-        <p>{FOOTER_DATA.brand.description}</p>
-      </div>
-      {
-        FOOTER_DATA.sections.map(section => (
-          <div>
-            <h3 class='mb-4 font-semibold'>{section.title}</h3>
-            <ul class='space-y-2 text-sm'>
-              {section.items.map(item => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
-    <div class='mt-12 border-t border-neutral-800 pt-8 text-center text-gray-400'>
-      <p>1905 - 2025 Club Estudiantes de La Plata.</p>
-    </div>
+<footer class='relative flex h-56 bg-neutral-700 py-6 text-white'>
+  <Edlp class='absolute -top-15 left-[45%] size-36' />
+  <div class='flex flex-1 flex-col justify-around gap-4 space-y-2'>
+    <section class='xs:flex-col flex flex-1 justify-around md:flex-row'>
+      {INFO_FOOTER.map(props => <CardInfo {...props} />)}
+    </section>
+    <section class='m-auto'>
+      <p>© 2025 Todos los derechos reservados.</p>
+    </section>
   </div>
+  <WhatsApp phone='+5492215217100' />
 </footer>

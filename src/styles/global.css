@@ -1,19 +1,34 @@
 @import 'tailwindcss';
-@plugin "@tailwindcss/typography";
+@import './font-face.css';
+@plugin '@tailwindcss/typography';
 
 @theme {
   --color-facebook: #0866ff;
   --color-instagram: #515edf;
   --color-edlp: #de1d22;
 
-  --animate-marquee: marquee var(--duration) linear infinite;
-}
+  --color-warm-beige-50: #f9f8f5;
+  --color-warm-beige-100: #f2f1ec;
+  --color-warm-beige-200: #e7e5dc;
+  --color-warm-beige-300: #d6d3c6;
+  --color-warm-beige-400: #bdb9a6;
+  --color-warm-beige-500: #a4a08b;
+  --color-warm-beige-600: #8a8672;
+  --color-warm-beige-700: #6f6b59;
+  --color-warm-beige-800: #555244;
+  --color-warm-beige-900: #3c3a30;
+  --color-warm-beige-950: #26251f;
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-50% - var(--gap) / 2));
+  --font-gt-america: 'GT America';
+  --font-gt-america-expanded: 'GT America Expanded';
+  --animate-marquee: marquee var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+    }
   }
 }

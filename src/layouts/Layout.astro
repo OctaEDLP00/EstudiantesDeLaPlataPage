@@ -1,18 +1,15 @@
 ---
-import Nav from "~/components/Nav.astro";
-import Footer from "~/components/Footer.astro";
-import SEO from "~/components/SEO.astro";
-// import '/src/styles/global.css'
+import Footer from '~/components/Footer.astro'
+import SEO from '~/components/SEO.astro'
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<SEO />
-	</head>
-	<body class='dark:bg-[#131313] text-[#131313] dark:text-white bg-white w-screen h-screen'>
-		<Nav />
-		<slot />
-		<Footer />
-	</body>
+<html lang='es'>
+  <head>
+    <SEO />
+  </head>
+  <body class='grid min-h-dvh grid-rows-[1fr_auto] bg-red-600 text-white'>
+    <slot />
+    <Footer />
+  </body>
 </html>

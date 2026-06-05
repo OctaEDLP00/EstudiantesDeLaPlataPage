@@ -1,0 +1,27 @@
+---
+import Phone from '~/assets/phone.svg'
+
+interface Props {
+  city: string
+  name: string
+  street: string
+  phone: string
+  place: string
+}
+
+const { place, phone, street, name, city } = Astro.props
+---
+
+<article class='flex flex-col items-center justify-center'>
+  <h4 class='text-xl font-extrabold uppercase'>{place}</h4>
+  <h5 class='tetxt-lg font-bold uppercase'>{name}</h5>
+  <p class='text-base font-semibold capitalize'>{street}</p>
+  <p class='capitalize'>{city} - buenos aires</p>
+  <a
+    href={`tel:${phone}`}
+    class='flex items-center space-x-2 rounded-md bg-green-400 px-2.5 py-0.5 text-xs text-black'
+  >
+    <Phone class='size-4' />
+    <p class='uppercase'>llamar</p>
+  </a>
+</article>

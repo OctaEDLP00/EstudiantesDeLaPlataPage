@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+type Input = SmartOmit<HTMLAttributes<'input'>, 'type' | 'name' | 'id'>
+interface Props extends Input {
+  labelName: string
+  labelId: string
+  labelName2: string
+  labelId2: string
+}
+---
+
+<div class='flex'>
+  <label for={Astro.props.labelName ?? Astro.props.labelId}>
+    SI
+    <input
+      type='radio'
+      name={Astro.props.labelName}
+      id={Astro.props.labelId}
+      {...Astro.props}
+    />
+  </label>
+  <label for={Astro.props.labelName2 ?? Astro.props.labelId2}>
+    NO
+    <input
+      type='radio'
+      name={Astro.props.labelName2}
+      id={Astro.props.labelId2}
+      {...Astro.props}
+    />
+  </label>
+</div>

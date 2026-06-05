@@ -1,0 +1,42 @@
+---
+import 'atropos/css'
+
+interface Props {
+  atroposClass?: string
+  atroposInnerClass?: string
+  atroposScaleClass?: string
+  atroposRotateClass?: string
+  extendedClass?: string
+  id?: string
+}
+
+const {
+  atroposClass,
+  atroposInnerClass,
+  atroposScaleClass,
+  atroposRotateClass,
+  id,
+  extendedClass,
+} = Astro.props
+---
+
+<div
+  id={id}
+  data-component='Atropos'
+  class:list={['atropos my-atropos', atroposClass, extendedClass]}
+>
+  <div class:list={['atropos-scale', atroposScaleClass]}>
+    <div class:list={['atropos-rotate', atroposRotateClass]}>
+      <div class:list={['atropos-inner rounded-lg', atroposInnerClass]}>
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import Atropos from 'atropos'
+  Atropos({
+    el: '.my-atropos',
+  })
+</script>

@@ -3,9 +3,8 @@
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "strictNullChecks": true,
-    "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["./src/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],

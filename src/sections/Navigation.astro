@@ -1,0 +1,45 @@
+---
+import TextLink from '~/components/ui/TextLink.astro'
+---
+
+<section class='grid w-350 grid-rows-7 gap-4 p-8 md:grid-cols-6 md:grid-rows-8'>
+  <TextLink
+    to='/eventos'
+    class='col-span-3 row-span-2'
+    title='eventos'
+    description='Canje de entradas para Eventos (Futbol, Asambleas, Otros)'
+  />
+  <TextLink
+    to='/usuario'
+    class='col-span-3 col-start-4 row-span-2'
+    title='mi usuario'
+  />
+  <TextLink
+    to='/autogestion'
+    class='col-span-4 row-span-2 row-start-3'
+    title='autogestion'
+    description='Desde esta función podes acceder a ver deuda, pagos realizados, debito automático y realizar pagos.'
+  />
+  <TextLink
+    to='/abonos'
+    class='col-span-2 col-start-5 row-span-2 row-start-3'
+    title='abonos'
+  />
+  <TextLink
+    to='/voluntario'
+    title='pago voluntario'
+    class='col-span-2 row-span-2 row-start-5'
+    description='acceder a la bonificacion sobre el aumento de la cuota social'
+  />
+  <TextLink
+    to='/legales'
+    class='col-span-4 col-start-3 row-span-2 row-start-5'
+    title='ver documentos legales'
+  />
+  <TextLink
+    to='/promociones'
+    class='col-span-6 row-span-2 row-start-7'
+    title='promociones vigentes'
+    description='tenes 1 beneficio disponible'
+  />
+</section>

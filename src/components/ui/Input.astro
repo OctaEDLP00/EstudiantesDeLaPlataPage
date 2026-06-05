@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'input'> {
+  labelText: string
+  containerClass?: string
+  inputClass?: string
+  forLabel: string
+}
+
+const { labelText, forLabel, containerClass, type, value, ...props } = Astro.props
+---
+
+<div class={containerClass}>
+  <label
+    for={forLabel}
+    class='mb-2.5 block text-sm font-medium'
+    >{labelText}</label
+  >
+  <input
+    autocomplete='off'
+    id={forLabel}
+    name={forLabel}
+    class:list={[Astro.props.inputClass, 'rounded-md border p-2']}
+    type={type}
+    value={value}
+    {...props}
+    readonly
+  />
+</div>

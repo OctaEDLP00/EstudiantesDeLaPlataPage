@@ -1,0 +1,25 @@
+---
+interface Props {
+  id: string
+  content: string
+  arrow: boolean
+}
+
+const { arrow = true } = Astro.props
+---
+
+<div
+  id={Astro.props.id}
+  role='tooltip'
+  class='tooltip invisible absolute z-10 inline-block rounded-xl bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs transition-opacity duration-300'
+>
+  {Astro.props.content}
+  {
+    arrow && (
+      <div
+        class='tooltip-arrow'
+        data-popper-arrow
+      />
+    )
+  }
+</div>

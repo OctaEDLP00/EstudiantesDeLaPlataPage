@@ -1,0 +1,480 @@
+{
+  "nivel_de_estudio": [
+    "POSGRADO",
+    "PRIMARIO",
+    "SECUNDARIO",
+    "TERCIARIO",
+    "UNIVERSITARIO",
+    "UNIVERSITARIO INCOMPLETO"
+  ],
+  "facultades": [
+    {
+      "value": "1",
+      "content": "UNIVERSIDAD NACIONAL DE LA PLATA - UNLP"
+    },
+    {
+      "value": "2",
+      "content": "UNIVERSIDAD DE BUENOS AIRES (UBA)"
+    },
+    {
+      "value": "3",
+      "content": "UNIVERSIDAD TECNOLOGICA NACIONAL (UTN)"
+    },
+    {
+      "value": "4",
+      "content": "UNIVERSIDAD CAECE"
+    },
+    {
+      "value": "5",
+      "content": "PONTIFICIA UNIVERSIDAD CATÓLICA ARGENTINA"
+    },
+    {
+      "value": "6",
+      "content": "UNIVERSIDAD ARGENTINA DE LA EMPRESA"
+    },
+    {
+      "value": "7",
+      "content": "UNIVERSIDAD ARGENTINA JOHN F. KENNEDY"
+    },
+    {
+      "value": "8",
+      "content": "UNIVERSIDAD CATÓLICA DE CÓRDOBA"
+    },
+    {
+      "value": "9",
+      "content": "UNIVERSIDAD CATÓLICA DE CUYO"
+    },
+    {
+      "value": "10",
+      "content": "UNIVERSIDAD CATÓLICA DE LA PLATA"
+    },
+    {
+      "value": "11",
+      "content": "UNIVERSIDAD CATÓLICA DE SALTA"
+    },
+    {
+      "value": "12",
+      "content": "UNIVERSIDAD CATÓLICA DE SANTA FE"
+    },
+    {
+      "value": "13",
+      "content": "UNIVERSIDAD CATÓLICA DE SANTIAGO DEL ESTERO"
+    },
+    {
+      "value": "14",
+      "content": "UNIVERSIDAD DE BELGRANO"
+    },
+    {
+      "value": "15",
+      "content": "UNIVERSIDAD DE CONCEPCIÓN DEL URUGUAY"
+    },
+    {
+      "value": "16",
+      "content": "UNIVERSIDAD DE MENDOZA"
+    },
+    {
+      "value": "17",
+      "content": "UNIVERSIDAD DE MORÓN"
+    },
+    {
+      "value": "18",
+      "content": "UNIVERSIDAD DEL ACONCAGUA"
+    },
+    {
+      "value": "19",
+      "content": "UNIVERSIDAD DE LA FRATERNIDAD DE AGRUPACIONES SANTO TOMÁS DE AQUINO"
+    },
+    {
+      "value": "20",
+      "content": "UNIVERSIDAD DEL SALVADOR"
+    },
+    {
+      "value": "21",
+      "content": "UNIVERSIDAD DE LA MARINA MERCANTE"
+    },
+    {
+      "value": "22",
+      "content": "UNIVERSIDAD ISALUD"
+    },
+    {
+      "value": "23",
+      "content": "UNIVERSIDAD JUAN AGUSTÍN MAZA"
+    },
+    {
+      "value": "24",
+      "content": "UNIVERSIDAD NOTARIAL ARGENTINA"
+    },
+    {
+      "value": "25",
+      "content": "UNIVERSIDAD ADVENTISTA DEL PLATA"
+    },
+    {
+      "value": "26",
+      "content": "UNIVERSIDAD AUSTRAL"
+    },
+    {
+      "value": "27",
+      "content": "UNIVERSIDAD CHAMPAGNAT"
+    },
+    {
+      "value": "28",
+      "content": "UNIVERSIDAD DE CIENCIAS EMPRESARIALES Y SOCIALES"
+    },
+    {
+      "value": "29",
+      "content": "UNIVERSIDAD DE PALERMO"
+    },
+    {
+      "value": "30",
+      "content": "UNIVERSIDAD DE SAN ANDRÉS"
+    },
+    {
+      "value": "31",
+      "content": "UNIVERSIDAD MAIMÓNIDES"
+    },
+    {
+      "value": "32",
+      "content": "UNIVERSIDAD BLÁS PASCAL"
+    },
+    {
+      "value": "33",
+      "content": "UNIVERSIDAD TORCUATO DI TELLA"
+    },
+    {
+      "value": "34",
+      "content": "UNIVERSIDAD DEL NORTE SANTO TOMÁS DE AQUINO"
+    },
+    {
+      "value": "35",
+      "content": "UNIVERSIDAD DEL CENTRO EDUCATIVO LATINOAMERICANO"
+    },
+    {
+      "value": "36",
+      "content": "UNIVERSIDAD DEL CINE"
+    },
+    {
+      "value": "37",
+      "content": "UNIVERSIDAD ATLÁNTIDA ARGENTINA"
+    },
+    {
+      "value": "38",
+      "content": "UNIVERSIDAD DE FLORES"
+    },
+    {
+      "value": "39",
+      "content": "UNIVERSIDAD DE LA CUENCA DEL PLATA"
+    },
+    {
+      "value": "40",
+      "content": "UNIVERSIDAD DE CONGRESO"
+    },
+    {
+      "value": "41",
+      "content": "UNIVERSIDAD EMPRESARIAL SIGLO 21"
+    },
+    {
+      "value": "42",
+      "content": "UNIVERSIDAD ABIERTA INTERAMERICANA"
+    },
+    {
+      "value": "43",
+      "content": "UNIVERSIDAD DEL CEMA"
+    },
+    {
+      "value": "44",
+      "content": "UNIVERSIDAD FAVALORO"
+    },
+    {
+      "value": "45",
+      "content": "UNIVERSIDAD DE SAN PABLO-TUCUMÁN"
+    },
+    {
+      "value": "46",
+      "content": "UNIVERSIDAD GASTÓN DACHARY"
+    },
+    {
+      "value": "47",
+      "content": "UNIVERSIDAD DEL ESTE"
+    },
+    {
+      "value": "48",
+      "content": "UNIVERSIDAD POPULAR DE MADRES DE PLAZA DE MAYO"
+    }
+  ],
+  "situacion_laboral": [
+    {
+      "value": "1",
+      "content": "INDEPENDIENTE"
+    },
+    {
+      "value": "2",
+      "content": "ESTUDIANTE"
+    },
+    {
+      "value": "3",
+      "content": "DESEMPLEADO"
+    },
+    {
+      "value": "4",
+      "content": "RELACIÓN DE DEPENDENCIA"
+    },
+    {
+      "value": "5",
+      "content": "JUBILADO"
+    }
+  ],
+  "situacion_fiscal": [
+    {
+      "value": "1",
+      "content": "MONOTRIBUTISTA"
+    },
+    {
+      "value": "3",
+      "content": "NINGUNA DE LAS ANTERIORES"
+    },
+    {
+      "value": "2",
+      "content": "RESPONSABLE INSCRIPTO"
+    }
+  ],
+  "bancos": [
+    {
+      "value": "comafi",
+      "content": "COMAFI"
+    },
+    {
+      "value": "banco-provincia",
+      "content": "BANCO PROVINCIA"
+    },
+    {
+      "value": "galicia",
+      "content": "GALICIA"
+    },
+    {
+      "value": "nación",
+      "content": "NACIÓN"
+    },
+    {
+      "value": "citibank",
+      "content": "CITIBANK"
+    },
+    {
+      "value": "bbva-francés",
+      "content": "BBVA FRANCÉS"
+    },
+    {
+      "value": "supervielle",
+      "content": "SUPERVIELLE"
+    },
+    {
+      "value": "ciudad",
+      "content": "CIUDAD"
+    },
+    {
+      "value": "patagonia",
+      "content": "PATAGONIA"
+    },
+    {
+      "value": "hipotecario",
+      "content": "HIPOTECARIO"
+    },
+    {
+      "value": "santander-rio",
+      "content": "SANTANDER RIO"
+    },
+    {
+      "value": "hsbc",
+      "content": "HSBC"
+    },
+    {
+      "value": "credicoop",
+      "content": "CREDICOOP"
+    },
+    {
+      "value": "itaú",
+      "content": "ITAÚ"
+    },
+    {
+      "value": "paribas",
+      "content": "PARIBAS"
+    },
+    {
+      "value": "macro",
+      "content": "MACRO"
+    },
+    {
+      "value": "icbc-china",
+      "content": "ICBC CHINA"
+    },
+    {
+      "value": "industrial",
+      "content": "INDUSTRIAL"
+    },
+    {
+      "value": "columbia",
+      "content": "COLUMBIA"
+    },
+    {
+      "value": "otros",
+      "content": "OTROS"
+    },
+    {
+      "value": "brubank",
+      "content": "BRUBANK"
+    },
+    {
+      "value": "naranja",
+      "content": "NARANJA"
+    },
+    {
+      "value": "mercado-pago",
+      "content": "MERCADO PAGO"
+    }
+  ],
+  "marca_tarjeta": [
+    {
+      "value": "amex",
+      "content": "AMEX"
+    },
+    {
+      "value": "visa",
+      "content": "VISA"
+    },
+    {
+      "value": "mastercard",
+      "content": "MASTERCARD"
+    }
+  ],
+  "compañia_celular": [
+    {
+      "value": "claro",
+      "content": "CLARO"
+    },
+    {
+      "value": "movistar",
+      "content": "MOVISTAR"
+    },
+    {
+      "value": "personal",
+      "content": "PERSONAL"
+    }
+  ],
+  "prepaga": [
+    {
+      "value": "aca-salud",
+      "content": "ACA SALUD"
+    },
+    {
+      "value": "accord-salud",
+      "content": "ACCORD SALUD"
+    },
+    {
+      "value": "apres-salud",
+      "content": "APRES SALUD"
+    },
+    {
+      "value": "femeba",
+      "content": "FEMEBA"
+    },
+    {
+      "value": "galeno",
+      "content": "GALENO"
+    },
+    {
+      "value": "medicus",
+      "content": "MEDICUS "
+    },
+    {
+      "value": "medife",
+      "content": "MEDIFE"
+    },
+    {
+      "value": "omint",
+      "content": "OMINT"
+    },
+    {
+      "value": "osde",
+      "content": "OSDE"
+    },
+    {
+      "value": "ospe",
+      "content": "OSPE"
+    },
+    {
+      "value": "sancor-salud",
+      "content": "SANCOR SALUD"
+    },
+    {
+      "value": "swiss-medical",
+      "content": "SWISS MEDICAL"
+    }
+  ],
+  "marca_celular": [
+    {
+      "value": "apple",
+      "content": "APPLE"
+    },
+    {
+      "value": "htc",
+      "content": "HTC"
+    },
+    {
+      "value": "huawei",
+      "content": "HUAWEI"
+    },
+    {
+      "value": "lenovo",
+      "content": "LENOVO"
+    },
+    {
+      "value": "lg",
+      "content": "LG"
+    },
+    {
+      "value": "microsoft",
+      "content": "MICROSOFT"
+    },
+    {
+      "value": "motorola",
+      "content": "MOTOROLA"
+    },
+    {
+      "value": "nokia",
+      "content": "NOKIA"
+    },
+    {
+      "value": "oneplus",
+      "content": "ONEPLUS"
+    },
+    {
+      "value": "samsung",
+      "content": "SAMSUNG"
+    },
+    {
+      "value": "sony",
+      "content": "SONY"
+    },
+    {
+      "value": "xiaomi",
+      "content": "XIAOMI"
+    }
+  ],
+  "vivienda": [
+    {
+      "value": "alquilada",
+      "content": "ALQUILADA"
+    },
+    {
+      "value": "otro",
+      "content": "OTRO"
+    },
+    {
+      "value": "propia",
+      "content": "PROPIA"
+    },
+    {
+      "value": "vive-con-familiares",
+      "content": "VIVE CON FAMILIARES"
+    }
+  ]
+}

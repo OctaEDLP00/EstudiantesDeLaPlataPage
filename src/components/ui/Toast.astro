@@ -1,0 +1,45 @@
+---
+interface Props {
+  type: 'success' | 'warning' | 'danger'
+  message: string
+}
+import Close from '~/assets/close.svg'
+const { type = 'success' } = Astro.props
+---
+
+<div
+  id={`toast-${type}`}
+  class:list={[
+    type === 'success' && '',
+    type === 'warning' && '',
+    type === 'danger' && '',
+    'flex w-full max-w-sm items-center rounded-xl border p-4 shadow-xs',
+  ]}
+  role='alert'
+>
+  <div
+    class:list={[
+      type === 'success' && '',
+      type === 'warning' && '',
+      type === 'danger' && '',
+      'inline-flex size-7 shrink-0 items-center justify-center rounded',
+    ]}
+  >
+    <span class='sr-only'>
+      {type === 'success' && 'Check'}
+      {type === 'warning' && 'Warning'}
+      {type === 'danger' && 'Error'}
+      icon
+    </span>
+  </div>
+  <div class='ms-3 text-sm font-normal'>{Astro.props.message}</div>
+  <button
+    type='button'
+    class='ms-auto box-border flex size-8 items-center justify-center rounded border border-transparent bg-transparent text-sm leading-5 font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:ring-4 focus:ring-gray-100 focus:outline-none'
+    data-dismiss-target='#toast-success'
+    aria-label='Close'
+  >
+    <span class='sr-only'>Close</span>
+    <Close />
+  </button>
+</div>

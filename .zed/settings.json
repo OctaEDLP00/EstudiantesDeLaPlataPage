@@ -1,0 +1,43 @@
+{
+  "file_types": {
+    "json": ["*.lock", ".postcssrc", ".stylelintrc", ".babelrc", "*.json"],
+    "jsonc": ["*.mcmeta", ".eslintrc", ".prettierrc", "*.jsonc"],
+    "xml": ["*.svg"],
+  },
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "tailwindCSS": {
+          "includeLanguages": {
+            "plaintext": "html",
+          },
+          "classAttributes": [
+            "class",
+            "className",
+            "ngClass",
+            "class:list",
+            "atroposClass",
+            "atroposInnerClass",
+            "atroposScaleClass",
+            "atroposRotateClass",
+            "extendedClass",
+          ],
+        },
+      },
+    },
+    "microsoft/vscode-css-languageservice": {
+      "enable_lsp_tasks": true,
+      "settings": {
+        // "CSS": {
+        //   "findDefinition": "",
+        //   "findDocumentLinks": ""
+        // }
+      },
+    },
+  },
+  "languages": {
+    "CSS": {
+      "language_servers": ["vscode-css-language-server"],
+    },
+  },
+}

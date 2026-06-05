@@ -1,0 +1,250 @@
+---
+import Atropos from '~/components/ui/Atropos.astro'
+import Input from '~/components/ui/Input.astro'
+import Button from '~/components/ui/Button.astro'
+import Carnet from '~/components/Carnet.astro'
+import Select from '~/components/ui/Select.astro'
+import INFO from '~/database/info.json'
+import Radio from '~/components/ui/Radio.astro'
+//import fakePartner from '~/database/fake-database-partner.json'
+---
+
+<section class='flex flex-col items-center justify-center'>
+  <Atropos
+    atroposClass='h-75 w-full max-w-125 hidden sm:block p-5'
+    atroposInnerClass='bg-white dark:bg-white/80 text-[#131313]'
+  >
+    <Carnet />
+  </Atropos>
+  <div class='mb-5 grid max-w-7xl grid-cols-1 gap-x-7 md:grid-cols-2 md:grid-rows-2'>
+    <form class='mt-8 w-full rounded-2xl border-2 px-8 py-5'>
+      <div>
+        <legend class='mb-6 uppercase'>Datos Personales</legend>
+        <Input
+          forLabel='birthday'
+          labelText='Cumpleaños'
+          type='text'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
+          value='24/06/1927'
+        />
+        <Input
+          forLabel='email'
+          class='mb-6'
+          labelText='Correo'
+          type='email'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-x'
+          value='zubeldia.osvaldo@gmail.com'
+        />
+        <Input
+          forLabel='street'
+          class='mb-6'
+          labelText='Direccion'
+          type='text'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-x'
+          value=''
+        />
+        <Input
+          forLabel='phone'
+          class='mb-6'
+          labelText='Telefono'
+          type='tel'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
+          value=''
+        />
+        <Input
+          forLabel='nacionality'
+          class='mb-6'
+          labelText='Nacionalidad'
+          type='tel'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
+          value=''
+        />
+      </div>
+    </form>
+    <form class='mt-8 w-full overflow-y-scroll rounded-2xl border-2 px-8 py-5'>
+      <div class='mb-4'>
+        <legend class='mb-6 uppercase'>Datos Complementarios</legend>
+        <div class='flex w-full flex-col justify-center'>
+          <h3 class='mb-3'>Estado Civil</h3>
+          <Select
+            name='estado-civil'
+            id='estado-civil'
+          >
+            <option value='soltero'>Soltero/a</option>
+            <option value='casado'>Casado/a</option>
+            <option value='divorciado'>Divorciado/a</option>
+            <option value='viudo'>Viudo/a</option>
+          </Select>
+        </div>
+      </div>
+      <div class='flex flex-col'>
+        <legend class='mb-6 uppercase'>Datos Complementarios (opcionales)</legend>
+        <p class='text-sm text-neutral-500'>
+          Los siguientes campos son opcionales. Nos ayudarán a conocerte mejor y ofrecerte
+          promociones con nuestros sponsors. Completalos y participá por importantes premios.
+          Mantenelos Actualizados!.
+        </p>
+        <div class='grid grid-cols-2'>
+          <div class='flex flex-col'>
+            <Select
+              id='estudios'
+              name='estudios'
+            >
+              {
+                INFO['nivel_de_estudio'].map(level => (
+                  <option value={level.replace(' ', '-').toLowerCase()}>{level}</option>
+                ))
+              }
+            </Select>
+            <Select
+              id='laboral'
+              name='laboral'
+            >
+              {
+                INFO['situacion_laboral'].map(({ value, content }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Select
+              id='banco'
+              name='banco'
+            >
+              {INFO['bancos'].map(({ value, content }) => <option value={value}>{content}</option>)}
+            </Select>
+            <Select
+              id='obra-social'
+              name='obra-social'
+              defaultOption='IOMA'
+            />
+            <Select
+              id='compania-celular'
+              name='compania-celular'
+            >
+              {
+                INFO['compañia_celular'].map(({ value, content }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Select
+              id='vivienda'
+              name='vivienda'
+            >
+              {
+                INFO['vivienda'].map(({ value, content }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Radio
+              labelName=''
+              labelId=''
+              labelName2=''
+              labelId2=''
+            />
+          </div>
+          <div class='flex flex-col'>
+            <Select
+              id='universidad'
+              name='universidad'
+            >
+              {
+                INFO['facultades'].map(({ content, value }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Select
+              id='fiscal'
+              name='fiscal'
+            >
+              {
+                INFO['situacion_fiscal'].map(({ content, value }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Select
+              id='marca-tarjeta'
+              name='marca-tarjeta'
+            >
+              {
+                INFO['marca_tarjeta'].map(({ content, value }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Select
+              id='prepaga'
+              name='prepaga'
+            >
+              {
+                INFO['prepaga'].map(({ content, value }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Select
+              id='marca-telefono'
+              name='marca-telefono'
+            >
+              {
+                INFO['marca_celular'].map(({ content, value }) => (
+                  <option value={value}>{content}</option>
+                ))
+              }
+            </Select>
+            <Radio
+              labelName=''
+              labelId=''
+              labelName2=''
+              labelId2=''
+            />
+          </div>
+        </div>
+        <Button class='items-end'>Participar</Button>
+      </div>
+    </form>
+    <form class='mt-8 w-full rounded-2xl border-2 px-8 py-5'>
+      <div>
+        <legend class='mb-6 uppercase'>Documentacion Presentada</legend>
+        <div></div>
+      </div>
+    </form>
+    <form
+      class='mt-8 w-full rounded-2xl border-2 px-8 py-5'
+      action='/usuario/change-password'
+      method='post'
+    >
+      <div>
+        <legend class='mb-6 uppercase'>Gestion Contraseña</legend>
+        <Input
+          forLabel='old-password'
+          class='mb-6'
+          labelText='Clave Actual'
+          type='password'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
+          placeholder='Password'
+        />
+        <Input
+          forLabel='nacionality'
+          class='mb-6'
+          labelText='Clave Nueva'
+          type='password'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
+          placeholder='New Password'
+        />
+        <Input
+          forLabel='nacionality'
+          class='mb-6'
+          labelText='Confirmar Clave'
+          type='password'
+          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
+          placeholder='Repeat Password'
+        />
+      </div>
+      <Button type='submit'>Actualizar Contraseña</Button>
+    </form>
+  </div>
+</section>
