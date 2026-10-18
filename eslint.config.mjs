@@ -37,12 +37,12 @@ export default [
       parser: '@typescript-eslint/parser',
     },
     rules: {
-      semi: ['warn', 'single'],
+      semi: ['warn', 'never'],
     },
   },
   {
     rules: {
-      semi: ['warn', 'single'],
+      semi: ['warn', 'never'],
     },
   },
 ]
