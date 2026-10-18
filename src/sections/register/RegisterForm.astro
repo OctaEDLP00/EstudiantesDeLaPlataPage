@@ -1,0 +1,110 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import PanelCard from '~/components/ui/PanelCard.astro'
+import FormGrid from '~/components/ui/FormGrid.astro'
+import Input from '~/components/ui/Input.astro'
+import Select from '~/components/ui/Select.astro'
+import Button from '~/components/ui/Button.astro'
+import AuthPrompt from '~/components/ui/AuthPrompt.astro'
+
+const DOCUMENTOS = ['DNI', 'LC', 'LE', 'CI', 'PASAPORTE']
+---
+
+<main class='mx-auto w-full max-w-160 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Nuevo usuario'
+    subtitle='Para asociarte o actualizar tus datos es necesario registrarte'
+  />
+
+  <PanelCard
+    as='form'
+    class='flex flex-col gap-5 p-6 md:p-8'
+    action='/'
+    method='post'
+  >
+    <FormGrid>
+      <Select
+        id='tipo-documento'
+        name='tipo-documento'
+        aria-label='Tipo de documento'
+      >
+        {DOCUMENTOS.map(doc => <option value={doc.toLowerCase()}>{doc}</option>)}
+      </Select>
+
+      <Input
+        forLabel='nro-documento'
+        labelText='N° de documento'
+        type='text'
+        inputmode='numeric'
+        placeholder='Ej. 30123456'
+      />
+    </FormGrid>
+
+    <FormGrid>
+      <Input
+        forLabel='apellido'
+        labelText='Apellido/s'
+        type='text'
+      />
+      <Input
+        forLabel='nombre'
+        labelText='Nombre/s'
+        type='text'
+      />
+    </FormGrid>
+
+    <FormGrid>
+      <Input
+        forLabel='birthday'
+        labelText='Fecha de nacimiento'
+        type='date'
+      />
+      <Input
+        forLabel='email'
+        labelText='Correo electrónico'
+        type='email'
+      />
+    </FormGrid>
+
+    <Input
+      forLabel='phone'
+      labelText='Teléfono'
+      type='tel'
+      placeholder='Ej. 221 5123456'
+    />
+
+    <FormGrid>
+      <Input
+        forLabel='password'
+        labelText='Contraseña'
+        type='password'
+        placeholder='••••••••'
+      />
+      <Input
+        forLabel='password-confirm'
+        labelText='Confirmar contraseña'
+        type='password'
+        placeholder='••••••••'
+      />
+    </FormGrid>
+
+    <p class='text-edlp-ink/55 text-xs leading-relaxed'>
+      Al registrarte aceptás los términos y condiciones del Club Estudiantes de La Plata.
+    </p>
+
+    <Button
+      type='submit'
+      variant='red'
+      class='w-full'
+    >
+      Registrarme
+    </Button>
+
+    <AuthPrompt
+      text='¿Ya estás registrado?'
+      linkText='Ingresá'
+      href='/login'
+    />
+  </PanelCard>
+</main>

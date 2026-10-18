@@ -1,0 +1,27 @@
+---
+export interface Props {
+  as?: 'h2' | 'h3'
+  size?: keyof typeof SIZES
+  divider?: boolean
+  class?: string
+}
+
+const { as: Tag = 'h2', size = 'xl', divider = false, class: className } = Astro.props
+
+const SIZES = {
+  base: 'text-base',
+  lg: 'text-lg',
+  xl: 'text-xl',
+} as const
+---
+
+<Tag
+  class:list={[
+    'font-display uppercase',
+    SIZES[size],
+    divider && 'mb-1 border-b border-white/10 pb-3 tracking-wide',
+    className,
+  ]}
+>
+  <slot />
+</Tag>

@@ -1,15 +1,35 @@
 ---
 import Footer from '~/components/Footer.astro'
+import Header from '~/components/Header.astro'
 import SEO from '~/components/SEO.astro'
+import WhatsApp from '~/components/WhatsApp.astro'
+
+export interface Props {
+  headerVariant?: 'full' | 'minimal'
+  title?: string | undefined
+  description?: string | undefined
+}
+
+const { headerVariant = 'full', title, description } = Astro.props
 ---
 
 <!doctype html>
-<html lang='es'>
+<html
+  lang='es'
+  class='bg-edlp-cream'
+>
   <head>
-    <SEO />
+    <SEO
+      title={title}
+      description={description}
+    />
   </head>
-  <body class='grid min-h-dvh grid-rows-[1fr_auto] bg-red-600 text-white'>
+  <body
+    class='bg-edlp-cream text-edlp-black grid min-h-dvh grid-rows-[auto_1fr_auto] font-sans antialiased'
+  >
+    <Header variant={headerVariant} />
     <slot />
     <Footer />
+    <WhatsApp phone='+5492215217100' />
   </body>
 </html>

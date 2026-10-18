@@ -3,6 +3,18 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
+  /* Paleta oficial del club */
+  --color-edlp-red: #e41815;
+  --color-edlp-red-700: #c21410;
+  --color-edlp-red-300: #f2544a;
+  --color-edlp-black: #111111;
+  --color-edlp-card: #1a1a1a;
+  --color-edlp-card-2: #2b2b2b;
+  --color-edlp-ink: #e6e6dc;
+  --color-edlp-cream: #e7e5dc;
+  --color-edlp-cream-2: #f2f1ec;
+  --color-edlp-brown: #1d1a16;
+
   --color-facebook: #0866ff;
   --color-instagram: #515edf;
   --color-edlp: #de1d22;
@@ -19,8 +31,11 @@
   --color-warm-beige-900: #3c3a30;
   --color-warm-beige-950: #26251f;
 
-  --font-gt-america: 'GT America';
-  --font-gt-america-expanded: 'GT America Expanded';
+  /* Tipografías: GT America como principal, Archivo Black como fallback */
+  --font-sans: 'GT America', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'GT America Expanded', var(--font-archivo-black), 'Arial Black', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
   --animate-marquee: marquee var(--duration) linear infinite;
 
   @keyframes marquee {
@@ -30,5 +45,109 @@
     to {
       transform: translateX(calc(-50% - var(--gap) / 2));
     }
+  }
+}
+
+/* Esquina cortada característica del sitio oficial */
+@utility clip-corner {
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
+}
+
+@utility clip-corner-sm {
+  clip-path: polygon(
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px),
+    0 8px
+  );
+}
+
+/* Texto con contorno, usado en el hero oficial */
+@utility text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+}
+
+/* Select nativo personalizable con CSS (appearance: base-select).
+   Tailwind todavía no expone una utilidad `base-select`, así que la creamos.
+   Ref: https://developer.chrome.com/blog/a-customizable-select */
+@utility select-base {
+  &,
+  &::picker(select) {
+    appearance: base-select;
+  }
+
+  width: 100%;
+  cursor: pointer;
+
+  /* Botón visible del select */
+  & > button {
+    display: flex;
+    width: 100%;
+    min-height: 24px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    text-align: left;
+  }
+
+  /* Icono de despliegue */
+  &::picker-icon {
+    transition: rotate 0.2s ease;
+  }
+
+  &:open {
+    border-color: var(--color-edlp-red);
+  }
+
+  &:open::picker-icon {
+    rotate: 180deg;
+  }
+
+  /* Panel desplegable */
+  &::picker(select) {
+    margin-block-start: 0.4rem;
+    border: 1px solid color-mix(in oklab, white 12%, transparent);
+    background-color: var(--color-edlp-card-2);
+    color: var(--color-edlp-ink);
+    box-shadow: 0 20px 45px -15px rgb(0 0 0 / 0.6);
+  }
+
+  /* Opciones */
+  & option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+  }
+
+  & option:hover,
+  & option:focus-visible {
+    background-color: var(--color-edlp-red);
+    color: #fff;
+    outline: none;
+  }
+
+  & option::checkmark {
+    order: 1;
+    margin-inline-start: auto;
+    color: var(--color-edlp-red);
+  }
+
+  & option:hover::checkmark,
+  & option:focus-visible::checkmark {
+    color: #fff;
   }
 }

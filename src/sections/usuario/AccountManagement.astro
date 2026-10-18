@@ -4,247 +4,284 @@ import Input from '~/components/ui/Input.astro'
 import Button from '~/components/ui/Button.astro'
 import Carnet from '~/components/Carnet.astro'
 import Select from '~/components/ui/Select.astro'
-import INFO from '~/database/info.json'
 import Radio from '~/components/ui/Radio.astro'
-//import fakePartner from '~/database/fake-database-partner.json'
+import PageHero from '~/components/ui/PageHero.astro'
+import PanelCard from '~/components/ui/PanelCard.astro'
+import PanelHeading from '~/components/ui/PanelHeading.astro'
+import FieldLabel from '~/components/ui/FieldLabel.astro'
+import FormGrid from '~/components/ui/FormGrid.astro'
+import INFO from '~/database/info.json'
 ---
 
-<section class='flex flex-col items-center justify-center'>
-  <Atropos
-    atroposClass='h-75 w-full max-w-125 hidden sm:block p-5'
-    atroposInnerClass='bg-white dark:bg-white/80 text-[#131313]'
+<main class='mx-auto w-full max-w-275 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Mi usuario'
+    subtitle='Mantené tus datos siempre actualizados'
+  />
+
+  <section
+    class='bg-edlp-black text-edlp-ink clip-corner relative mb-5 flex flex-col items-center gap-8 px-6 py-10 md:py-14'
   >
-    <Carnet />
-  </Atropos>
-  <div class='mb-5 grid max-w-7xl grid-cols-1 gap-x-7 md:grid-cols-2 md:grid-rows-2'>
-    <form class='mt-8 w-full rounded-2xl border-2 px-8 py-5'>
-      <div>
-        <legend class='mb-6 uppercase'>Datos Personales</legend>
-        <Input
-          forLabel='birthday'
-          labelText='Cumpleaños'
-          type='text'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
-          value='24/06/1927'
-        />
-        <Input
-          forLabel='email'
-          class='mb-6'
-          labelText='Correo'
-          type='email'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-x'
-          value='zubeldia.osvaldo@gmail.com'
-        />
-        <Input
-          forLabel='street'
-          class='mb-6'
-          labelText='Direccion'
-          type='text'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-x'
-          value=''
-        />
-        <Input
-          forLabel='phone'
-          class='mb-6'
-          labelText='Telefono'
-          type='tel'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
-          value=''
-        />
-        <Input
-          forLabel='nacionality'
-          class='mb-6'
-          labelText='Nacionalidad'
-          type='tel'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
-          value=''
-        />
+    <div class='text-center'>
+      <p class='text-edlp-red-300 font-mono text-[11px] tracking-[0.3em] uppercase'>
+        Carnet digital
+      </p>
+      <h2 class='font-display mt-3 text-2xl uppercase md:text-3xl'>Socio N° 3.128.066</h2>
+      <p class='text-edlp-ink/60 mt-2 text-sm'>
+        Categoría Activos · 6 años y 10 meses de antigüedad
+      </p>
+    </div>
+
+    <Atropos
+      atroposClass='h-85 w-full max-w-140'
+      atroposInnerClass='bg-white text-edlp-black'
+    >
+      <Carnet />
+    </Atropos>
+  </section>
+
+  <div class='grid items-start gap-5 lg:grid-cols-2'>
+    <PanelCard
+      as='form'
+      class='flex flex-col gap-5 p-6 md:p-8'
+    >
+      <PanelHeading divider>Datos personales</PanelHeading>
+      <Input
+        forLabel='birthday'
+        labelText='Cumpleaños'
+        type='text'
+        value='24/06/1927'
+      />
+      <Input
+        forLabel='email'
+        labelText='Correo'
+        type='email'
+        value='zubeldia.osvaldo@gmail.com'
+      />
+      <Input
+        forLabel='street'
+        labelText='Dirección'
+        type='text'
+      />
+      <Input
+        forLabel='phone'
+        labelText='Teléfono'
+        type='tel'
+      />
+      <Input
+        forLabel='nacionality'
+        labelText='Nacionalidad'
+        type='text'
+      />
+      <Button
+        type='submit'
+        variant='dark'
+        class='self-start'
+      >
+        Guardar cambios
+      </Button>
+    </PanelCard>
+
+    <PanelCard
+      as='form'
+      class='flex flex-col gap-5 p-6 md:p-8'
+    >
+      <PanelHeading divider>Datos complementarios</PanelHeading>
+
+      <div class='flex flex-col gap-2'>
+        <FieldLabel for='estado-civil'>Estado civil</FieldLabel>
+        <Select
+          name='estado-civil'
+          id='estado-civil'
+        >
+          <option value='soltero'>Soltero/a</option>
+          <option value='casado'>Casado/a</option>
+          <option value='divorciado'>Divorciado/a</option>
+          <option value='viudo'>Viudo/a</option>
+        </Select>
       </div>
-    </form>
-    <form class='mt-8 w-full overflow-y-scroll rounded-2xl border-2 px-8 py-5'>
-      <div class='mb-4'>
-        <legend class='mb-6 uppercase'>Datos Complementarios</legend>
-        <div class='flex w-full flex-col justify-center'>
-          <h3 class='mb-3'>Estado Civil</h3>
-          <Select
-            name='estado-civil'
-            id='estado-civil'
-          >
-            <option value='soltero'>Soltero/a</option>
-            <option value='casado'>Casado/a</option>
-            <option value='divorciado'>Divorciado/a</option>
-            <option value='viudo'>Viudo/a</option>
-          </Select>
-        </div>
-      </div>
-      <div class='flex flex-col'>
-        <legend class='mb-6 uppercase'>Datos Complementarios (opcionales)</legend>
-        <p class='text-sm text-neutral-500'>
-          Los siguientes campos son opcionales. Nos ayudarán a conocerte mejor y ofrecerte
-          promociones con nuestros sponsors. Completalos y participá por importantes premios.
-          Mantenelos Actualizados!.
+
+      <div
+        class='mt-2 flex flex-col gap-3'
+        title='Los siguientes campos son opcionales. Nos ayudarán a conocerte mejor y a ofrecerte promociones con nuestros sponsors.'
+      >
+        <p class='text-edlp-red-300 font-mono text-[11px] tracking-[0.12em] uppercase'>
+          Datos complementarios (opcionales)
         </p>
-        <div class='grid grid-cols-2'>
-          <div class='flex flex-col'>
-            <Select
-              id='estudios'
-              name='estudios'
-            >
-              {
-                INFO['nivel_de_estudio'].map(level => (
-                  <option value={level.replace(' ', '-').toLowerCase()}>{level}</option>
-                ))
-              }
-            </Select>
-            <Select
-              id='laboral'
-              name='laboral'
-            >
-              {
-                INFO['situacion_laboral'].map(({ value, content }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Select
-              id='banco'
-              name='banco'
-            >
-              {INFO['bancos'].map(({ value, content }) => <option value={value}>{content}</option>)}
-            </Select>
-            <Select
-              id='obra-social'
-              name='obra-social'
-              defaultOption='IOMA'
-            />
-            <Select
-              id='compania-celular'
-              name='compania-celular'
-            >
-              {
-                INFO['compañia_celular'].map(({ value, content }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Select
-              id='vivienda'
-              name='vivienda'
-            >
-              {
-                INFO['vivienda'].map(({ value, content }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Radio
-              labelName=''
-              labelId=''
-              labelName2=''
-              labelId2=''
-            />
-          </div>
-          <div class='flex flex-col'>
-            <Select
-              id='universidad'
-              name='universidad'
-            >
-              {
-                INFO['facultades'].map(({ content, value }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Select
-              id='fiscal'
-              name='fiscal'
-            >
-              {
-                INFO['situacion_fiscal'].map(({ content, value }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Select
-              id='marca-tarjeta'
-              name='marca-tarjeta'
-            >
-              {
-                INFO['marca_tarjeta'].map(({ content, value }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Select
-              id='prepaga'
-              name='prepaga'
-            >
-              {
-                INFO['prepaga'].map(({ content, value }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Select
-              id='marca-telefono'
-              name='marca-telefono'
-            >
-              {
-                INFO['marca_celular'].map(({ content, value }) => (
-                  <option value={value}>{content}</option>
-                ))
-              }
-            </Select>
-            <Radio
-              labelName=''
-              labelId=''
-              labelName2=''
-              labelId2=''
-            />
-          </div>
-        </div>
-        <Button class='items-end'>Participar</Button>
+
+        <FormGrid gap='sm'>
+          <Select
+            id='estudios'
+            name='estudios'
+            defaultOption='Nivel de estudio'
+            aria-label='Nivel de estudio'
+          >
+            {
+              INFO['nivel_de_estudio'].map(level => (
+                <option value={level.replace(' ', '-').toLowerCase()}>{level}</option>
+              ))
+            }
+          </Select>
+          <Select
+            id='universidad'
+            name='universidad'
+            defaultOption='Universidad'
+            aria-label='Universidad'
+          >
+            {
+              INFO['facultades'].map(({ content, value }) => (
+                <option value={value}>{content}</option>
+              ))
+            }
+          </Select>
+          <Select
+            id='laboral'
+            name='laboral'
+            defaultOption='Situación laboral'
+            aria-label='Situación laboral'
+          >
+            {
+              INFO['situacion_laboral'].map(({ value, content }) => (
+                <option value={value}>{content}</option>
+              ))
+            }
+          </Select>
+          <Select
+            id='fiscal'
+            name='fiscal'
+            defaultOption='Situación fiscal'
+            aria-label='Situación fiscal'
+          >
+            {
+              INFO['situacion_fiscal'].map(({ content, value }) => (
+                <option value={value}>{content}</option>
+              ))
+            }
+          </Select>
+          <Select
+            id='banco'
+            name='banco'
+            defaultOption='Banco'
+            aria-label='Banco'
+          >
+            {INFO['bancos'].map(({ value, content }) => <option value={value}>{content}</option>)}
+          </Select>
+          <Select
+            id='marca-tarjeta'
+            name='marca-tarjeta'
+            defaultOption='Marca de tarjeta'
+            aria-label='Marca de tarjeta'
+          >
+            {
+              INFO['marca_tarjeta'].map(({ content, value }) => (
+                <option value={value}>{content}</option>
+              ))
+            }
+          </Select>
+          <Select
+            id='obra-social'
+            name='obra-social'
+            defaultOption='Obra social'
+            aria-label='Obra social'
+          />
+          <Select
+            id='prepaga'
+            name='prepaga'
+            defaultOption='Prepaga'
+            aria-label='Prepaga'
+          >
+            {INFO['prepaga'].map(({ content, value }) => <option value={value}>{content}</option>)}
+          </Select>
+          <Select
+            id='compania-celular'
+            name='compania-celular'
+            defaultOption='Compañía celular'
+            aria-label='Compañía celular'
+          >
+            {
+              INFO['compañia_celular'].map(({ value, content }) => (
+                <option value={value}>{content}</option>
+              ))
+            }
+          </Select>
+          <Select
+            id='marca-telefono'
+            name='marca-telefono'
+            defaultOption='Marca del teléfono'
+            aria-label='Marca del teléfono'
+          >
+            {
+              INFO['marca_celular'].map(({ content, value }) => (
+                <option value={value}>{content}</option>
+              ))
+            }
+          </Select>
+          <Select
+            id='vivienda'
+            name='vivienda'
+            defaultOption='Vivienda'
+            aria-label='Vivienda'
+          >
+            {INFO['vivienda'].map(({ value, content }) => <option value={value}>{content}</option>)}
+          </Select>
+        </FormGrid>
+
+        <Radio
+          name='debito-automatico'
+          legend='¿Debita automáticamente?'
+        />
       </div>
-    </form>
-    <form class='mt-8 w-full rounded-2xl border-2 px-8 py-5'>
-      <div>
-        <legend class='mb-6 uppercase'>Documentacion Presentada</legend>
-        <div></div>
-      </div>
-    </form>
-    <form
-      class='mt-8 w-full rounded-2xl border-2 px-8 py-5'
-      action='/usuario/change-password'
+
+      <Button
+        type='submit'
+        variant='red'
+        class='self-start'
+      >
+        Participar
+      </Button>
+    </PanelCard>
+
+    <PanelCard
+      as='section'
+      class='flex flex-col gap-5 p-6 md:p-8'
+    >
+      <PanelHeading divider>Documentación presentada</PanelHeading>
+      <p class='text-edlp-ink/60 text-sm'>No se registra documentación pendiente.</p>
+    </PanelCard>
+
+    <PanelCard
+      as='form'
+      class='flex flex-col gap-5 p-6 md:p-8'
+      action='/api/usuario/change-password'
       method='post'
     >
-      <div>
-        <legend class='mb-6 uppercase'>Gestion Contraseña</legend>
-        <Input
-          forLabel='old-password'
-          class='mb-6'
-          labelText='Clave Actual'
-          type='password'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
-          placeholder='Password'
-        />
-        <Input
-          forLabel='nacionality'
-          class='mb-6'
-          labelText='Clave Nueva'
-          type='password'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
-          placeholder='New Password'
-        />
-        <Input
-          forLabel='nacionality'
-          class='mb-6'
-          labelText='Confirmar Clave'
-          type='password'
-          inputClass='border text-sm rounded-xl focus:ring-0 focus:border-0 block w-full px-3 py-2.5 shadow-xs'
-          placeholder='Repeat Password'
-        />
-      </div>
-      <Button type='submit'>Actualizar Contraseña</Button>
-    </form>
+      <PanelHeading divider>Gestión de contraseña</PanelHeading>
+      <Input
+        forLabel='old-password'
+        labelText='Clave actual'
+        type='password'
+        placeholder='••••••••'
+      />
+      <Input
+        forLabel='new-password'
+        labelText='Clave nueva'
+        type='password'
+        placeholder='••••••••'
+      />
+      <Input
+        forLabel='confirm-password'
+        labelText='Confirmar clave'
+        type='password'
+        placeholder='••••••••'
+      />
+      <Button
+        type='submit'
+        variant='red'
+        class='self-start'
+      >
+        Actualizar contraseña
+      </Button>
+    </PanelCard>
   </div>
-</section>
+</main>

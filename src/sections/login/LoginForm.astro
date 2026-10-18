@@ -1,0 +1,88 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import PanelCard from '~/components/ui/PanelCard.astro'
+import Input from '~/components/ui/Input.astro'
+import Select from '~/components/ui/Select.astro'
+import Button from '~/components/ui/Button.astro'
+import AuthPrompt from '~/components/ui/AuthPrompt.astro'
+
+const DOCUMENTOS = ['DNI', 'LC', 'LE', 'CI', 'PASAPORTE']
+---
+
+<main class='mx-auto w-full max-w-130 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Ingresar'
+    subtitle='Sistema de gestión'
+  />
+
+  <PanelCard
+    as='form'
+    class='flex flex-col gap-5 p-6 md:p-8'
+    action='/'
+    method='post'
+  >
+    <Select
+      id='tipo-documento'
+      name='tipo-documento'
+      aria-label='Tipo de documento'
+    >
+      {DOCUMENTOS.map(doc => <option value={doc.toLowerCase()}>{doc}</option>)}
+    </Select>
+
+    <Input
+      forLabel='nro-documento'
+      labelText='N° de documento'
+      type='text'
+      inputmode='numeric'
+      placeholder='Ej. 30123456'
+    />
+
+    <Input
+      forLabel='password'
+      labelText='Contraseña'
+      type='password'
+      placeholder='••••••••'
+    />
+
+    <Button
+      type='submit'
+      variant='red'
+      class='mt-2 w-full'
+    >
+      Ingresar
+    </Button>
+
+    <AuthPrompt
+      text='¿No tenés cuenta?'
+      linkText='Registrate'
+      href='/register'
+    />
+  </PanelCard>
+
+  <div class='mt-6 flex flex-col gap-4'>
+    <Button
+      href='https://www.estudiantesdelaplata.com/bases-y-condiciones-socios-referidos'
+      asBlank
+      variant='outline'
+      class='w-full'
+    >
+      Bases y condiciones socios referidos
+    </Button>
+
+    <div class='flex justify-between font-mono text-[11px] tracking-widest uppercase'>
+      <a
+        href='/login'
+        class='text-edlp-black/60 hover:text-edlp-red-700 transition-colors'
+        >Olvidé mi clave</a
+      >
+      <a
+        href='https://www.estudiantesdelaplata.com/socios/atencion-al-socio/'
+        target='_blank'
+        rel='noopener noreferrer'
+        class='text-edlp-black/60 hover:text-edlp-red-700 transition-colors'
+        >Atención al cliente</a
+      >
+    </div>
+  </div>
+</main>

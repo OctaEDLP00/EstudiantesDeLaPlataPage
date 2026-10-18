@@ -1,0 +1,16 @@
+---
+export interface Props {
+  as?: 'label' | 'legend' | 'span'
+  for?: string
+  class?: string
+}
+
+const { as: Tag = 'label', for: htmlFor, class: className } = Astro.props
+---
+
+<Tag
+  for={Tag === 'label' ? htmlFor : undefined}
+  class:list={['text-edlp-ink/55 font-mono text-[11px] tracking-[0.12em] uppercase', className]}
+>
+  <slot />
+</Tag>

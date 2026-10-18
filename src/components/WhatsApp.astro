@@ -9,10 +9,14 @@ interface Props {
   href={`https://wa.me/${Astro.props.phone}`}
   target='_blank'
   rel='noopener noreferrer'
-  class='absolute right-7 bottom-7 flex size-14 items-center justify-center rounded-full bg-green-500 text-white'
+  class='fixed right-7 bottom-7 z-50 flex size-14 items-center justify-center rounded-full bg-green-500 text-white'
   title='WhatsApp del Club Estudiantes de La Plata'
   aria-label='WhatsApp del Club Estudiantes de La Plata'
 >
   <span class='sr-only'>WhatsApp del Club Estudiantes de La Plata</span>
-  <Whatsapp class='size-10' />
+  <Whatsapp
+    class='size-10'
+    aria-hidden='true'
+    focusable='false'
+  />
 </a>

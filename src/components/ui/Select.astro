@@ -5,10 +5,19 @@ interface Props extends HTMLAttributes<'select'> {
   defaultOption?: string
 }
 
-const { defaultOption, ...props } = Astro.props
+const { defaultOption, class: className, ...props } = Astro.props
 ---
 
-<select {...props}>
+<select
+  class:list={[
+    'select-base text-edlp-ink focus:border-edlp-red border border-white/15 bg-white/5 px-4 py-3 text-sm transition-colors focus:outline-none',
+    className,
+  ]}
+  {...props}
+>
+  <button>
+    <selectedcontent></selectedcontent>
+  </button>
   {defaultOption && <option value={defaultOption.toLowerCase()}>{defaultOption}</option>}
   <slot />
 </select>

@@ -1,6 +1,4 @@
 ---
-import Phone from '~/assets/phone.svg'
-
 interface Props {
   city: string
   name: string
@@ -12,16 +10,17 @@ interface Props {
 const { place, phone, street, name, city } = Astro.props
 ---
 
-<article class='flex flex-col items-center justify-center'>
-  <h4 class='text-xl font-extrabold uppercase'>{place}</h4>
-  <h5 class='tetxt-lg font-bold uppercase'>{name}</h5>
-  <p class='text-base font-semibold capitalize'>{street}</p>
-  <p class='capitalize'>{city} - buenos aires</p>
+<article class='flex flex-col gap-1.5'>
+  <h3 class='text-xs leading-tight font-extrabold tracking-[0.08em] text-white uppercase'>
+    {place}
+    <span class='block'>{name}</span>
+  </h3>
+  <p class='text-edlp-ink/70 font-mono text-[11px] leading-relaxed'>{street}</p>
+  <p class='text-edlp-ink/70 font-mono text-[11px]'>{city} - Buenos Aires</p>
   <a
     href={`tel:${phone}`}
-    class='flex items-center space-x-2 rounded-md bg-green-400 px-2.5 py-0.5 text-xs text-black'
+    class='text-edlp-ink/70 hover:text-edlp-red-300 font-mono text-[11px] transition-colors'
   >
-    <Phone class='size-4' />
-    <p class='uppercase'>llamar</p>
+    {phone}
   </a>
 </article>

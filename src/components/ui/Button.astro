@@ -1,14 +1,57 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 
-interface Props extends HTMLAttributes<'button'> {}
+interface Props extends HTMLAttributes<'button'> {
+  variant?: 'red' | 'dark' | 'outline' | 'ghost'
+  size?: 'md' | 'sm'
+  href?: string
+  asBlank?: boolean
+}
 
-const { type = 'button' } = Astro.props
+const {
+  variant = 'red',
+  size = 'md',
+  href,
+  asBlank,
+  class: className,
+  type,
+  ...props
+} = Astro.props
+
+const base =
+  'inline-flex cursor-pointer items-center justify-center gap-2 text-center font-black uppercase tracking-wider transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-edlp-red focus-visible:ring-offset-2'
+
+const sizes = {
+  md: 'clip-corner px-6.5 py-3.25 text-sm',
+  sm: 'clip-corner-sm px-4.5 py-2.25 text-xs',
+}
+
+const variants = {
+  red: 'bg-edlp-red text-white hover:bg-edlp-black',
+  dark: 'bg-edlp-black text-white hover:bg-edlp-red',
+  outline:
+    'border border-edlp-black/25 bg-transparent text-edlp-black hover:bg-edlp-black hover:text-white',
+  ghost: 'bg-transparent text-edlp-black hover:text-edlp-red-700',
+}
+
+const classes = [base, sizes[size], variants[variant], className]
 ---
 
-<button
-  {type}
-  {...Astro.props}
->
-  <slot />
-</button>
+{
+  href ?
+    <a
+      href={href}
+      target={asBlank ? '_blank' : '_self'}
+      rel={asBlank ? 'noopener noreferrer' : undefined}
+      class:list={classes}
+    >
+      <slot />
+    </a>
+  : <button
+      type={type ?? 'button'}
+      class:list={classes}
+      {...props}
+    >
+      <slot />
+    </button>
+}

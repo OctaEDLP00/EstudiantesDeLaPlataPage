@@ -1,7 +1,10 @@
 ---
 import CardInfo from '~/components/ui/CardInfo.astro'
 import Edlp from '~/assets/edlp.svg'
-import WhatsApp from '~/components/WhatsApp.astro'
+import Instagram from '~/assets/instagram.svg'
+import Facebook from '~/assets/facebook.svg'
+import Youtube from '~/assets/youtube.svg'
+import X from '~/assets/x.svg'
 
 interface Info {
   city: string
@@ -27,7 +30,7 @@ const INFO_FOOTER = [
     city: 'city bell',
   },
   {
-    place: 'estadio',
+    place: 'estadio uno',
     name: 'jorge luis hirschi',
     street: 'av. 1 e/ 55 y 57',
     phone: '(+54 221) 527 7100',
@@ -41,17 +44,57 @@ const INFO_FOOTER = [
     city: 'city bell',
   },
 ] satisfies Array<Info>
+
+const SOCIALS = [
+  { label: 'Facebook', href: 'https://www.facebook.com/EdelpOficial/', Icon: Facebook },
+  { label: 'X', href: 'https://x.com/EdelpOficial', Icon: X },
+  { label: 'Instagram', href: 'https://www.instagram.com/edelpoficial/', Icon: Instagram },
+  { label: 'YouTube', href: 'https://www.youtube.com/@EdelpOficial', Icon: Youtube },
+]
 ---
 
-<footer class='relative flex h-56 bg-neutral-700 py-6 text-white'>
-  <Edlp class='absolute -top-15 left-[45%] size-36' />
-  <div class='flex flex-1 flex-col justify-around gap-4 space-y-2'>
-    <section class='xs:flex-col flex flex-1 justify-around md:flex-row'>
+<footer class='bg-edlp-brown text-edlp-ink'>
+  <div class='mx-auto max-w-350 px-6 py-14'>
+    <Edlp
+      class='mx-auto h-24 w-auto md:h-28'
+      aria-hidden='true'
+      focusable='false'
+    />
+
+    <nav
+      aria-label='Redes sociales'
+      class='mt-7 flex justify-center gap-3'
+    >
+      {
+        SOCIALS.map(({ label, href, Icon }) => (
+          <a
+            href={href}
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label={label}
+            class='text-edlp-ink hover:bg-edlp-red flex size-9 items-center justify-center rounded-full bg-white/5 transition-colors hover:text-white'
+          >
+            <Icon
+              class='size-4'
+              aria-hidden='true'
+              focusable='false'
+            />
+          </a>
+        ))
+      }
+    </nav>
+
+    <section
+      aria-label='Sedes del club'
+      class='mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4'
+    >
       {INFO_FOOTER.map(props => <CardInfo {...props} />)}
     </section>
-    <section class='m-auto'>
-      <p>© 2025 Todos los derechos reservados.</p>
-    </section>
   </div>
-  <WhatsApp phone='+5492215217100' />
+
+  <div class='border-t border-white/10'>
+    <p class='text-edlp-ink/60 mx-auto max-w-350 px-6 py-4 text-center font-mono text-[11px]'>
+      © 2025 Todos los derechos reservados.
+    </p>
+  </div>
 </footer>

@@ -1,0 +1,51 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import PanelCard from '~/components/ui/PanelCard.astro'
+import PanelHeading from '~/components/ui/PanelHeading.astro'
+import Button from '~/components/ui/Button.astro'
+---
+
+<main class='mx-auto w-full max-w-225 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Autogestión'
+    subtitle='Consultá tu situación y mantené tus datos al día'
+  />
+
+  <div class='grid gap-5 sm:grid-cols-2'>
+    <PanelCard
+      as='section'
+      accent='top'
+      class='flex flex-col gap-4 p-6 md:p-8'
+    >
+      <PanelHeading>Deuda cuenta corriente</PanelHeading>
+      <p class='text-edlp-ink/65 text-sm'>
+        Verificá si tenés deuda pendiente en tu cuenta corriente.
+      </p>
+      <Button
+        variant='dark'
+        class='mt-auto self-start'
+      >
+        Ingresar
+      </Button>
+    </PanelCard>
+
+    <PanelCard
+      as='section'
+      accent='top'
+      class='flex flex-col gap-4 p-6 md:p-8'
+    >
+      <PanelHeading>Mi usuario</PanelHeading>
+      <p class='text-edlp-ink/65 text-sm'>
+        Mantené actualizados tus datos personales, de contacto y de usuario.
+      </p>
+      <Button
+        href='/usuario'
+        variant='red'
+        class='mt-auto self-start'
+      >
+        Ingresar
+      </Button>
+    </PanelCard>
+  </div>
+</main>

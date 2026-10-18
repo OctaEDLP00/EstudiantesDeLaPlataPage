@@ -1,0 +1,52 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import EventCard from '~/components/ui/EventCard.astro'
+
+const EVENTS = [
+  {
+    day: '15',
+    month: 'Oct',
+    title: 'Torcida visitante - Flamengo',
+    phase: 'Semifinal',
+    stadium: 'Estadio Jorge Luis Hirschi',
+    date: '15/10/2026',
+    time: '21:30',
+    status: 'En espera',
+    available: false,
+  },
+  {
+    day: '15',
+    month: 'Oct',
+    title: 'Flamengo',
+    phase: 'Semifinal',
+    stadium: 'Estadio Jorge Luis Hirschi',
+    date: '15/10/2026',
+    time: '21:30',
+    status: 'En espera',
+    available: false,
+  },
+  {
+    day: '18',
+    month: 'Oct',
+    title: 'San Lorenzo',
+    phase: 'Fecha 13',
+    stadium: 'Estadio Jorge Luis Hirschi',
+    date: '18/10/2026',
+    time: '18:00',
+    status: 'En venta',
+    available: true,
+  },
+]
+---
+
+<main class='mx-auto w-full max-w-225 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Próximos eventos'
+    subtitle='Canje de entradas para eventos'
+  />
+
+  <section class='flex flex-col gap-5'>
+    {EVENTS.map(event => <EventCard {...event} />)}
+  </section>
+</main>

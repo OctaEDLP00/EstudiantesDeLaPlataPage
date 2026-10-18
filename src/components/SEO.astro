@@ -1,17 +1,83 @@
 ---
 import { Font } from 'astro:assets'
+
+export interface Props {
+  title?: string | undefined
+  description?: string | undefined
+}
+
+const {
+  title = 'Socios | Sistema de gestión | Estudiantes de La Plata',
+  description = 'Portal de socios del Club Estudiantes de La Plata: gestioná tu carnet digital, eventos, abonos, autogestión y datos personales.',
+} = Astro.props
+
+const SITE_NAME = 'Estudiantes de La Plata'
+const canonical = new URL(Astro.url.pathname, Astro.url.origin).href
 ---
 
 <meta charset='UTF-8' />
-<title>Estudiantes de La Plata</title>
 <meta
   name='viewport'
-  content='width=device-width'
+  content='width=device-width, initial-scale=1, viewport-fit=cover'
 />
 <meta
-  name='description'
-  content='Sistema de gestión de socios del Club Estudiantes de la Plata'
+  name='theme-color'
+  content='#E41815'
 />
+<title>{title}</title>
+<meta
+  name='description'
+  content={description}
+/>
+<meta
+  name='robots'
+  content='index, follow'
+/>
+<link
+  rel='canonical'
+  href={canonical}
+/>
+
+<!-- Open Graph -->
+<meta
+  property='og:type'
+  content='website'
+/>
+<meta
+  property='og:site_name'
+  content={SITE_NAME}
+/>
+<meta
+  property='og:locale'
+  content='es_AR'
+/>
+<meta
+  property='og:title'
+  content={title}
+/>
+<meta
+  property='og:description'
+  content={description}
+/>
+<meta
+  property='og:url'
+  content={canonical}
+/>
+
+<!-- Twitter -->
+<meta
+  name='twitter:card'
+  content='summary'
+/>
+<meta
+  name='twitter:title'
+  content={title}
+/>
+<meta
+  name='twitter:description'
+  content={description}
+/>
+
 <link
   rel='stylesheet'
   href='/src/styles/global.css'

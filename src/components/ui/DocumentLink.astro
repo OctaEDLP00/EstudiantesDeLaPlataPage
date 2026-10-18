@@ -1,0 +1,34 @@
+---
+import Download from '~/assets/download.svg'
+import AccentBar from './AccentBar.astro'
+
+interface Props {
+  title: string
+  meta?: string
+  href: string
+}
+
+const { title, meta, href } = Astro.props
+---
+
+<a
+  href={href}
+  class='group bg-edlp-card text-edlp-ink clip-corner hover:bg-edlp-black relative flex items-center justify-between gap-4 px-6 py-5 transition-colors'
+>
+  <AccentBar side='left' />
+  <span class='flex flex-col'>
+    <span class='font-display text-base uppercase'>{title}</span>
+    {
+      meta && (
+        <span class='text-edlp-ink/60 mt-1 font-mono text-[11px] tracking-[0.12em] uppercase'>
+          {meta}
+        </span>
+      )
+    }
+  </span>
+  <Download
+    class='text-edlp-ink/60 group-hover:text-edlp-red-300 size-5 shrink-0 transition-colors'
+    aria-hidden='true'
+    focusable='false'
+  />
+</a>

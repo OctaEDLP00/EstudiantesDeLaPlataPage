@@ -1,0 +1,59 @@
+---
+import PortalCard from '~/components/ui/PortalCard.astro'
+
+const CARDS = [
+  {
+    tag: '01',
+    title: 'Eventos',
+    description: 'Canje de entradas para eventos: fútbol, asambleas y otros.',
+    href: '/eventos',
+  },
+  {
+    tag: '02',
+    title: 'Mi usuario',
+    description: 'Mantené actualizados tus datos personales y de contacto.',
+    href: '/usuario',
+  },
+  {
+    tag: '03',
+    title: 'Autogestión',
+    description: 'Consultá tu deuda, pagos realizados y débito automático.',
+    href: '/autogestion',
+  },
+  {
+    tag: '04',
+    title: 'Abonos',
+    description: 'Gestioná tus abonos y accesos al estadio.',
+    href: '/abonos',
+  },
+  {
+    tag: '05',
+    title: 'Pago voluntario',
+    description: 'Accedé a la bonificación sobre el aumento de la cuota social.',
+    href: '/voluntario',
+  },
+  {
+    tag: '06',
+    title: 'Beneficios',
+    description: 'Promociones vigentes y club de beneficios para socios.',
+    href: '/promociones',
+  },
+  {
+    tag: '07',
+    title: 'Documentos legales',
+    description: 'Estatuto, reglamento y documentación institucional.',
+    href: '/legales',
+  },
+]
+---
+
+<section class='mx-auto w-full max-w-350 px-4 pb-20 md:px-8'>
+  <div class='mb-6 flex items-center gap-4'>
+    <h2 class='font-display text-sm tracking-wide uppercase'>Trámites y servicios</h2>
+    <span class='bg-edlp-black/15 h-px flex-1'></span>
+  </div>
+
+  <div class='grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+    {CARDS.map(card => <PortalCard {...card} />)}
+  </div>
+</section>

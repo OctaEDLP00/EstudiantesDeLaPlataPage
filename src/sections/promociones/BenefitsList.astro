@@ -1,0 +1,44 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import PortalCard from '~/components/ui/PortalCard.astro'
+
+const BENEFITS = [
+  {
+    tag: 'Sponsor oficial',
+    title: '20% en Mejor Crédito',
+    description: 'Descuento exclusivo para socios en la contratación de créditos personales.',
+    meta: 'Vigente hasta 31/12/2026',
+  },
+  {
+    tag: 'Sponsor oficial',
+    title: 'Promo Powerade',
+    description: 'Llevá tu producto Powerade con descuento presentando el carnet digital.',
+    meta: 'Vigente hasta 31/12/2026',
+  },
+  {
+    tag: 'Club de beneficios',
+    title: '2x1 en la Tienda Pincha',
+    description: 'Beneficio exclusivo en indumentaria seleccionada de la tienda oficial.',
+    meta: 'Vigente hasta agotar stock',
+  },
+]
+---
+
+<main class='mx-auto w-full max-w-350 px-4 pb-24 md:px-8'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Beneficios'
+    subtitle='Tenes 1 beneficio disponible'
+  />
+
+  <div class='grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+    {
+      BENEFITS.map(card => (
+        <PortalCard
+          {...card}
+          headingLevel='h2'
+        />
+      ))
+    }
+  </div>
+</main>

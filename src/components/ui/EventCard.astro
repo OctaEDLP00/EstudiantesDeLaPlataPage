@@ -1,0 +1,61 @@
+---
+import Button from './Button.astro'
+import AccentBar from './AccentBar.astro'
+
+interface Props {
+  day: string
+  month: string
+  title: string
+  phase: string
+  stadium: string
+  date: string
+  time: string
+  status: string
+  available: boolean
+}
+
+const { day, month, title, phase, stadium, date, time, status, available } = Astro.props
+---
+
+<article
+  class='bg-edlp-card text-edlp-ink clip-corner relative flex flex-col gap-6 p-6 sm:flex-row sm:items-center'
+>
+  <AccentBar side='left' />
+
+  <div class='flex w-full flex-col items-start justify-center gap-1 sm:w-28'>
+    <span class='font-display text-4xl leading-none'>{day}</span>
+    <span class='font-mono text-[11px] tracking-[0.2em] uppercase'>{month}</span>
+  </div>
+
+  <div class='flex-1'>
+    <h2 class='font-display text-xl leading-tight uppercase'>{title}</h2>
+    <div
+      class='text-edlp-ink/65 mt-3 flex flex-col gap-1 font-mono text-[11px] tracking-wide uppercase'
+    >
+      <span>Nro fecha: {phase}</span>
+      <span>{stadium}</span>
+      <span>Día: {date} · Hora: {time}</span>
+    </div>
+    <p class='mt-3 text-xs font-bold tracking-widest uppercase'>
+      Estado:{' '}
+      <span class={available ? 'text-green-400' : 'text-edlp-red-300'}>Disponible ({status})</span>
+    </p>
+  </div>
+
+  <div class='flex w-full flex-col gap-2 sm:w-56'>
+    <Button
+      variant='dark'
+      size='sm'
+      class='w-full'
+    >
+      Ingresar a canje
+    </Button>
+    <Button
+      variant='red'
+      size='sm'
+      class='w-full'
+    >
+      Ingresar a ticketing
+    </Button>
+  </div>
+</article>

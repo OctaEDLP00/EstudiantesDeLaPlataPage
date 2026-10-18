@@ -1,31 +1,42 @@
 ---
-import type { HTMLAttributes } from 'astro/types'
-type Input = SmartOmit<HTMLAttributes<'input'>, 'type' | 'name' | 'id'>
-interface Props extends Input {
-  labelName: string
-  labelId: string
-  labelName2: string
-  labelId2: string
+import FieldLabel from './FieldLabel.astro'
+
+interface Props {
+  name: string
+  legend?: string
+  class?: string
 }
+
+const { name, legend, class: className } = Astro.props
 ---
 
-<div class='flex'>
-  <label for={Astro.props.labelName ?? Astro.props.labelId}>
+<fieldset class:list={['flex flex-wrap items-center gap-5', className]}>
+  {
+    legend && (
+      <FieldLabel
+        as='legend'
+        class='mr-2'
+      >
+        {legend}
+      </FieldLabel>
+    )
+  }
+  <label class='text-edlp-ink flex cursor-pointer items-center gap-2 text-sm'>
+    <input
+      type='radio'
+      name={name}
+      value='si'
+      class='accent-edlp-red size-4'
+    />
     SI
+  </label>
+  <label class='text-edlp-ink flex cursor-pointer items-center gap-2 text-sm'>
     <input
       type='radio'
-      name={Astro.props.labelName}
-      id={Astro.props.labelId}
-      {...Astro.props}
+      name={name}
+      value='no'
+      class='accent-edlp-red size-4'
     />
-  </label>
-  <label for={Astro.props.labelName2 ?? Astro.props.labelId2}>
     NO
-    <input
-      type='radio'
-      name={Astro.props.labelName2}
-      id={Astro.props.labelId2}
-      {...Astro.props}
-    />
   </label>
-</div>
+</fieldset>

@@ -1,0 +1,17 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import EmptyState from '~/components/ui/EmptyState.astro'
+---
+
+<main class='mx-auto w-full max-w-225 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Abonos'
+    subtitle='Tus abonos y accesos al estadio'
+  />
+
+  <EmptyState
+    title='Sin abonos activos'
+    description='No se registra información de abonos'
+  />
+</main>

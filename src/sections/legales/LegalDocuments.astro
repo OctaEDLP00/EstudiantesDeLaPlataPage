@@ -1,0 +1,32 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import DocumentLink from '~/components/ui/DocumentLink.astro'
+
+const DOCUMENTS = [
+  { title: 'Estatuto Social', meta: 'PDF · 1.2 MB', href: '/documentos/estatuto-social.pdf' },
+  { title: 'Reglamento General', meta: 'PDF · 840 KB', href: '/documentos/reglamento-general.pdf' },
+  {
+    title: 'Memoria y Balance 2025',
+    meta: 'PDF · 3.4 MB',
+    href: '/documentos/memoria-y-balance-2025.pdf',
+  },
+  { title: 'Código de Ética', meta: 'PDF · 620 KB', href: '/documentos/codigo-de-etica.pdf' },
+  {
+    title: 'Protocolo de Género y Diversidad',
+    meta: 'PDF · 980 KB',
+    href: '/documentos/protocolo-genero-y-diversidad.pdf',
+  },
+]
+---
+
+<main class='mx-auto w-full max-w-225 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Documentos legales'
+    subtitle='Estatuto, reglamento y documentación institucional'
+  />
+
+  <section class='flex flex-col gap-3'>
+    {DOCUMENTS.map(document => <DocumentLink {...document} />)}
+  </section>
+</main>

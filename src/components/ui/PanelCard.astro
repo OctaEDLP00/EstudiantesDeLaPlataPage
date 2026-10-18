@@ -1,0 +1,20 @@
+---
+import AccentBar from './AccentBar.astro'
+
+export interface Props {
+  as?: 'div' | 'section' | 'form' | 'article'
+  accent?: 'top' | 'left' | 'none'
+  class?: string
+  [key: string]: unknown
+}
+
+const { as: Tag = 'div', accent = 'none', class: className, ...rest } = Astro.props
+---
+
+<Tag
+  class:list={['bg-edlp-card text-edlp-ink clip-corner relative', className]}
+  {...rest}
+>
+  <AccentBar side={accent} />
+  <slot />
+</Tag>

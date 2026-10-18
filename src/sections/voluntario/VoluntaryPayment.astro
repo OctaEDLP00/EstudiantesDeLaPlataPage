@@ -1,0 +1,48 @@
+---
+import PageHero from '~/components/ui/PageHero.astro'
+import PanelCard from '~/components/ui/PanelCard.astro'
+import PanelHeading from '~/components/ui/PanelHeading.astro'
+import Button from '~/components/ui/Button.astro'
+---
+
+<main class='mx-auto w-full max-w-180 px-4 pb-24'>
+  <PageHero
+    eyebrow='Portal de socios'
+    title='Pago voluntario'
+    subtitle='Bonificación sobre el aumento de la cuota social'
+  />
+
+  <PanelCard
+    as='section'
+    class='flex flex-col gap-6 p-6 md:p-8'
+  >
+    <PanelHeading>Pago voluntario</PanelHeading>
+
+    <p class='text-edlp-ink/70 text-sm leading-relaxed'>
+      Estás adherido al <strong class='text-edlp-ink'>Pago Voluntario</strong> del nuevo valor de la cuota
+      social. Desde esta opción podés
+      <strong class='text-edlp-ink'>acceder al descuento</strong> por debajo del pago voluntario.
+    </p>
+
+    <label class='text-edlp-ink/80 flex items-start gap-3 text-sm'>
+      <input
+        type='checkbox'
+        class='accent-edlp-red mt-0.5 size-4 shrink-0'
+      />
+      <span>
+        Aceptar <a
+          href='/legales'
+          class='text-edlp-red-300 font-semibold hover:underline'
+          >términos y condiciones</a
+        >.
+      </span>
+    </label>
+
+    <Button
+      variant='red'
+      class='self-start'
+    >
+      Acceder al descuento
+    </Button>
+  </PanelCard>
+</main>

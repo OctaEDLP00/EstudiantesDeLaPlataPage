@@ -1,0 +1,22 @@
+---
+interface Props {
+  side?: 'top' | 'left' | 'none'
+  class?: string
+}
+
+const { side = 'none', class: className } = Astro.props
+
+const sides: Record<string, string> = {
+  top: 'inset-x-0 top-0 h-0.75',
+  left: 'inset-y-0 left-0 w-0.75',
+}
+---
+
+{
+  side !== 'none' && (
+    <span
+      aria-hidden='true'
+      class:list={['bg-edlp-red absolute', sides[side], className]}
+    />
+  )
+}

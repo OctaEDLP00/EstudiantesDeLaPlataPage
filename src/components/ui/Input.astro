@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import FieldLabel from './FieldLabel.astro'
 
 interface Props extends HTMLAttributes<'input'> {
   labelText: string
@@ -8,23 +9,25 @@ interface Props extends HTMLAttributes<'input'> {
   forLabel: string
 }
 
-const { labelText, forLabel, containerClass, type, value, ...props } = Astro.props
+const { labelText, forLabel, containerClass, inputClass, class: className, ...props } = Astro.props
 ---
 
 <div class={containerClass}>
-  <label
+  <FieldLabel
     for={forLabel}
-    class='mb-2.5 block text-sm font-medium'
-    >{labelText}</label
+    class='mb-2 block'
   >
+    {labelText}
+  </FieldLabel>
   <input
-    autocomplete='off'
     id={forLabel}
     name={forLabel}
-    class:list={[Astro.props.inputClass, 'rounded-md border p-2']}
-    type={type}
-    value={value}
+    autocomplete='off'
+    class:list={[
+      'text-edlp-ink placeholder:text-edlp-ink/30 focus:border-edlp-red w-full border border-white/15 bg-white/5 px-4 py-3 text-sm transition-colors focus:outline-none',
+      inputClass,
+      className,
+    ]}
     {...props}
-    readonly
   />
 </div>
